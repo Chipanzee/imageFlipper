@@ -1,0 +1,85 @@
+.puzzledImage {
+  width: 354px; /* (panel_height+panel_margin*2)*panels per row = (100px+(10px*2))*8 */
+}
+
+.fullImage {
+  width: 354px;
+  height: 280px;
+  background: url("../../assets/ivan.gif") no-repeat 0 0 fixed;
+}
+
+.fullBlackImage {
+  width: 352px;
+  height: 280px;
+  background-color: black;
+  transition: background-color 0.4s;
+}
+
+.puzzledImage .puzzle {
+  float: left;
+}
+
+/* entire container, keeps perspective */
+.isFlipping {
+  perspective: 1000px;
+}
+/* flip the pane when hovered */
+.isFlipping .flipper,
+.isFlipping .flipper {
+  transform: rotateY(180deg);
+}
+
+.isFlipping .flipper2,
+.isFlipping .flipper2 {
+  transform: rotateY(-180deg) !important;
+}
+
+.flip-container,
+.front,
+.back {
+  // width: 320px;
+  // height: 480px;
+}
+
+/* flip speed goes here */
+.flipper {
+  transition: 1.6s;
+  transform-style: preserve-3d;
+
+  // position: relative;
+}
+
+/* flip speed goes here */
+.flipper2 {
+  transition: 1.6s;
+  transform-style: preserve-3d;
+
+  // position: relative;
+}
+
+/* hide back of pane during swap */
+.front,
+.back {
+  backface-visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* front pane, placed above back */
+.front {
+  width: inherit;
+  height: inherit;
+  background: url("../../assets/ivan.gif") no-repeat 0 0 fixed;
+  z-index: 2;
+  /* for firefox 31 */
+  transform: rotateY(0deg);
+}
+
+/* back, initially hidden pane */
+.back {
+  width: inherit;
+  height: inherit;
+  transform: rotateY(180deg);
+  background-color: black;
+}

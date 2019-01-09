@@ -1,0 +1,18 @@
+<div style="text-align:center">
+  <h1>Welcome to imageFlipper!</h1>
+
+  <div id="mainDiv" (click)="flipImage($event)" class="fullImage">
+    <div id="puzzledDiv" class="puzzledImage">
+      <div
+        *ngFor="let item of imageArray"
+        class="flipper puzzle"
+        [style.width.px]="puzzleStyle.width"
+        [style.height.px]="puzzleStyle.heigth"
+        [style.margin.px]="puzzleStyle.margin"
+      >
+        <div class="front"></div>
+        <div class="back"></div>
+      </div>
+    </div>
+  </div>
+</div>
